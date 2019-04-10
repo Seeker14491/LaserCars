@@ -17,7 +17,7 @@ namespace LampCheat
                 string cheatname = "THE MIGHTY LAMP";
 
                 string cheatlocked = string.Format("{0} Complete: {1}", "To Unlock:".Colorize(Colors.tomato), am.GetAchievement(achievement).name_);
-                string cheatunlocked = string.Format("{0}: Enlighten your way trough the Array", "Visual".Colorize(Colors.yellowGreen));
+                string cheatunlocked = string.Format("{0}: Enlighten your way through the Array", "Visual".Colorize(Colors.yellowGreen));
 
                 if (!am.HasAchieved(achievement)) {
                     __instance.TweakAction(GUtils.GetLockedText(cheatname).Colorize(Colors.gray), null, cheatlocked);
