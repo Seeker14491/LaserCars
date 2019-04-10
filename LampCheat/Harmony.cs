@@ -5,6 +5,17 @@ namespace LampCheat
 {
     class Harmony
     {
+        [HarmonyPatch(typeof(CarVisuals), "Start")]
+        class CarVisuals_Patch
+        {
+            static void Postfix(CarVisuals __instance)
+            {
+                Scripts.LampController controller = __instance.gameObject.AddComponent<Scripts.LampController>();
+                controller.SetCarLogic(__instance.gameObject.GetComponentInParent<CarLogic>());
+            }
+        }
+
+
         [HarmonyPatch(typeof(CheatMenu), "InitializeVirtual")]
         class CheatMenu_Patch
         {
@@ -26,6 +37,8 @@ namespace LampCheat
                 {
                     __instance.TweakBool(cheatname, Entry.GetKey("lamp.cheat", false), (value) => {
                         Entry.SetKey("lamp.cheat", value);
+                        foreach (Scripts.LampController controller in UnityEngine.Object.FindObjectsOfType<Scripts.LampController>())
+                            controller.lamp.SetActive(Entry.GetKey("lamp.cheat", false));
                     }, cheatunlocked);
                 }
             }

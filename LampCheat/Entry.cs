@@ -23,16 +23,6 @@ namespace LampCheat
                 Console.WriteLine(Greg.Message);
             }
 
-            Events.Scene.LoadFinish.Subscribe((data) => {
-                GameObject lampprefab = Resources.Load<GameObject>("Prefabs/LevelEditor/Decorations/Empirelamp");
-                
-                lamp = GameObject.Instantiate(lampprefab, Vector3.zero, Quaternion.identity);
-                lamp.AddComponent<Scripts.LampController>();
-                lamp.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-            });
-
-            
-
             InitSettings();
         }
 
