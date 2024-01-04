@@ -1,9 +1,7 @@
 # Laser Cars
 
-## TODO:
+Add a big, deadly laser on top of your (as well as your opponents') car.
 
-- Fix null exceptions in multiplayer when a player leaves while ingame
-- Test in non-splitscreen multiplayer
-- Port to Centrifuge
-- Make dependency paths independent of development machine
-- Remove achievement requirement
+## Known Issues
+
+- Null exceptions in multiplayer when players leave.
